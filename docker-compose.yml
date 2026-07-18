@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+
+  crowdstate-api:
+
+    build: .
+
+    container_name: crowdstate-api
+
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    ports:
+      - "8000:8000"
