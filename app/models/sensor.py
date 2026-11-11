@@ -1,6 +1,7 @@
 from sqlalchemy import Column, BigInteger, Text, Boolean, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
+from sqlalchemy import Integer
 
 from app.core.database import Base
 
@@ -56,4 +57,24 @@ class Sensor(Base):
         Text,
         unique=True,
         nullable=False
+    )
+
+    last_seen_at = Column(
+    DateTime(timezone=True),
+    nullable=True
+    )
+
+    uptime_seconds = Column(
+    BigInteger,
+    nullable=True
+    )
+
+    wifi_rssi = Column(
+    Integer,
+    nullable=True
+    )
+
+    firmware_version = Column(
+    Text,
+    nullable=True
     )

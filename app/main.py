@@ -31,6 +31,10 @@ from app.exceptions.exception_handler import (
     generic_exception_handler
 )
 
+from app.api.heartbeat import router as heartbeat_router
+
+
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -85,6 +89,8 @@ app.include_router(ingest_router)
 app.include_router(health_router)
 
 app.include_router(version_router)
+
+app.include_router(heartbeat_router)
 
 @app.get("/")
 def root():
